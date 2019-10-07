@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UserDataController {
-    Logger logger = LoggerFactory.getLogger(UserDataController.class);
+public class MetadataController {
+    Logger logger = LoggerFactory.getLogger(MetadataController.class);
 
-    @RequestMapping(value="/phoneNumbers/{userId}", method = RequestMethod.GET)
-    public long getPhoneNumber(@PathVariable("userId") int userId) {
+    @RequestMapping(value="/metadata/phoneNumbers/{userId}", method = RequestMethod.GET)
+    public long getPhoneNumber(@PathVariable("userId") String userId) {
 
         logger.info("Getting phone number of : " + userId);
         sleep();
         return getRandomNumber();
     }
 
-    @RequestMapping(value="/names/{userId}", method = RequestMethod.GET)
-    public String getName(@PathVariable("userId") int userId) {
+    @RequestMapping(value="/metadata/names/{userId}", method = RequestMethod.GET)
+    public String getName(@PathVariable("userId") String userId) {
 
         logger.info("Getting name: " + userId);
         sleep();
@@ -35,7 +35,7 @@ public class UserDataController {
 
     private void sleep() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(300);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
